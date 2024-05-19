@@ -1,3 +1,9 @@
+# VSCode folder
+.vscode
+
+# Unziped folders
+Entradas_Saidas
+
 # Prerequisites
 *.d
 
