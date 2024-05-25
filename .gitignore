@@ -4,6 +4,10 @@
 # Unziped folders
 Entradas_Saidas
 
+# Compiled files
+caminhos
+caminhos_sec
+
 # Prerequisites
 *.d
 
