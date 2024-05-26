@@ -137,17 +137,17 @@ int main(int argc, char **argv)
     checa_cuda(cudaMalloc((void **)&distInDevice, nBytes));
     checa_cuda(cudaMalloc((void **)&distOutDevice, nBytes));
 
-    // Inicia medição de tempo de execução na GPU
-    cudaEvent_t d_ini, d_fim;
-    cudaEventCreate(&d_ini);
-    cudaEventCreate(&d_fim);
-    cudaEventRecord(d_ini, 0);
-        
 	// Determina nBlocos e nThreadsBloco
 	// nBlocos.x = teto(m / nThreadsBloco.x)
 	// nBlocos.y = teto(n / nThreadsBloco.y)
 	dim3 nThreadsBloco(32,32);
 	dim3 nBlocos((nVert + (nThreadsBloco.x - 1)) / nThreadsBloco.x, (nVert + (nThreadsBloco.y - 1)) / nThreadsBloco.y);
+
+    // Inicia medição de tempo de execução na GPU
+    cudaEvent_t d_ini, d_fim;
+    cudaEventCreate(&d_ini);
+    cudaEventCreate(&d_fim);
+    cudaEventRecord(d_ini, 0);
 
     // Copia dados de entrada do host para memória global da GPU
     checa_cuda(cudaMemcpy(distInDevice, distInHost, nBytes, cudaMemcpyHostToDevice));
@@ -163,17 +163,7 @@ int main(int argc, char **argv)
         cudaDeviceSynchronize();
 
         // Atribui os valores de distOutDevice em distInDevice
-        checa_cuda(cudaMemcpy(distInHost, distOutDevice, nBytes, cudaMemcpyDeviceToHost));
-
-        // for (int i = 0; i < nVert; i++){
-        //     for (int j = 0; j < nVert; j++){
-        //         printf("%d ", distInHost[i * nVert + j]);
-        //     }
-        //     printf("\n");
-        // }
-
-        checa_cuda(cudaMemcpy(distInDevice, distInHost, nBytes, cudaMemcpyHostToDevice));
-        // checa_cuda(cudaMemcpy(distInDevice, distOutDevice, nBytes, cudaMemcpyDeviceToDevice));
+        checa_cuda(cudaMemcpy(distInDevice, distOutDevice, nBytes, cudaMemcpyDeviceToDevice));
     }
 
     // Copia dados de entrada da GPU para o host
