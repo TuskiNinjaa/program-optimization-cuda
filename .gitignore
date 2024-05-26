@@ -5,8 +5,8 @@
 Entradas_Saidas
 
 # Compiled files
+caminhos_seq
 caminhos
-caminhos_sec
 
 # Prerequisites
 *.d
