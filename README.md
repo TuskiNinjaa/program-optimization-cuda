@@ -6,11 +6,7 @@ The objective of this work is to use the CUDA library to parallelize a sequentia
 - UnZip - Version 6.00
 - cuda-toolkit - Version 11.8
 
-# GPU
-- Google Colab - Tesla T4
-
 # Setup conda enviroment
-
 ```console
 conda create -n pp_cuda -y
 conda activate pp_cuda
@@ -33,6 +29,8 @@ chmod +x teste.sh
 ```
 
 ## Example of output after running the test script
+- Google Colab - Tesla T4
+
 ```console
 Tempo CPU = 0.00ms
 Tempo GPU = 0.28ms
@@ -48,5 +46,26 @@ Tempo GPU = 1.52ms
 Test case 4: Files are EQUAL
 Tempo CPU = 8135.93ms
 Tempo GPU = 8.82ms
+Test case 5: Files are EQUAL
+```
+
+- CPU - i5-13450HX
+- GPU - RTX 3050 mobile 6Gb
+
+```console
+Tempo CPU = 0.00ms
+Tempo GPU = 0.12ms
+Test case 1: Files are EQUAL
+Tempo CPU = 0.00ms
+Tempo GPU = 0.13ms
+Test case 2: Files are EQUAL
+Tempo CPU = 0.31ms
+Tempo GPU = 0.14ms
+Test case 3: Files are EQUAL
+Tempo CPU = 202.83ms
+Tempo GPU = 0.84ms
+Test case 4: Files are EQUAL
+Tempo CPU = 2280.42ms
+Tempo GPU = 5.17ms
 Test case 5: Files are EQUAL
 ```
