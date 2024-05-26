@@ -4,7 +4,6 @@ gcc caminhos_seq.c -o caminhos_seq
 nvcc caminhos.cu -o caminhos
 
 declare -a n_vertices=( 4 8 32 256 512 )
-# declare -a n_vertices=( 256 )
 
 for i in "${!n_vertices[@]}"
 do
