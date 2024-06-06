@@ -1,4 +1,4 @@
-# program-optimization-cuda
+# program-paralelization-cuda
 The objective of this work is to use the CUDA library to parallelize a sequential algorithm (_All Pairs Shortest Paths_) and verify the speedup obtained when executing both codes on the same machine.
 
 # Enviroment
